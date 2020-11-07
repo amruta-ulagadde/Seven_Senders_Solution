@@ -1,0 +1,19 @@
+SQL Task-
+
+
+1. Select * from Employees where salary=(select(max(salary) from employees)
+
+2. Select max(salary) from Employees
+
+3.  Select top 1 max(salary) from employees 
+where salary= (Select top 2 max(salary) from employees order by salary asc)
+
+4. Select * from employees where emp_id between 10001 and 10008
+
+5. Select e.emp_id, e.first_name, e.last_name, e.gender, e.position, e.salary, d.department_id, d.department_name from employees e, departments d 
+where e.department_id =d.department_id
+and salary= (Select max(salary) from employees)
+
+6. Select e.salary, e.first_name+e.last_name AS employee_name, d. department_name from employees e, departments d 
+where e.department_id =d.department_id
+and salary IN (Select max(salary)from employees group by e.department_id)
